@@ -11,6 +11,7 @@ import hashlib
 import json
 import subprocess
 import tempfile
+from history import archive_snapshot
 
 ROOT = Path(__file__).resolve().parent.parent
 SYMBOLS = {"VOO", "SPY", "IVV", "VTI", "VT"}
@@ -32,6 +33,7 @@ trading_date = day.strftime("%Y-%m-%d")
 if args.output.exists() and not args.force:
     old = json.loads(args.output.read_text())
     if old.get("source") == "IEX HIST" and old.get("tradingDate") == trading_date and {q["symbol"] for q in old.get("quotes", [])} == SYMBOLS:
+        archive_snapshot(args.output.with_name("history.json"), old)
         print(f"Already have complete {trading_date}; no large download needed", flush=True)
         raise SystemExit(0)
 url = record["link"]
@@ -61,6 +63,7 @@ with tempfile.TemporaryDirectory(prefix="moa-iex-") as temp:
     value["termsURL"] = "https://www.iex.io/legal/hist-data-terms"
     value["sourceFileBytes"] = int(record["size"])
     value["collectorVersion"] = hashlib.sha256((ROOT / "collector/main.rs").read_bytes()).hexdigest()[:16]
+    archive_snapshot(args.output.with_name("history.json"), value)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     target = args.output.with_suffix(".json.tmp")
     target.write_text(json.dumps(value, indent=2) + "\n")

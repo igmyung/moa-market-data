@@ -19,12 +19,14 @@ jobs:
         with:
           ref: main
       - name: Validate parser
-        run: python3 tests/test_collector.py
+        run: |
+          python3 tests/test_collector.py
+          python3 tests/test_history.py
       - name: Stream newest completed IEX trading day
         run: python3 collector/collect.py
       - name: Publish only validated small result
         run: |
-          git add public/prices.json
+          git add public/prices.json public/history.json
           if git diff --cached --quiet; then exit 0; fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

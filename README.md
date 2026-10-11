@@ -6,7 +6,7 @@ These are IEX venue reference prices, not consolidated US closing prices, NAV, r
 
 ## Run
 
-Requires Python 3, rustc, curl and gzip. No third-party packages or API key. Run `python3 tests/test_collector.py` and `python3 collector/collect.py`. The collector downloads the multi-GB source as a stream without retaining it. Successful output is only `public/prices.json`.
+Requires Python 3, rustc, curl and gzip. No third-party packages or API key. Run `python3 tests/test_collector.py`, `python3 tests/test_history.py` and `python3 collector/collect.py`. The collector downloads the multi-GB source as a stream without retaining it. Successful output is a latest snapshot in `public/prices.json` and date-ordered daily ETF prices in `public/history.json`. Historical records begin with the first verified collection (2026-10-09); missing trading days are never invented. Repeated collection of the same day does not add duplicate rows. No user asset history is stored here.
 
 A public repository using the standard Ubuntu GitHub Actions runner can process daily without paid runner minutes. No artifacts or large-file caches are uploaded. A schedule runs at 07:17 UTC (16:17 Korea time), checking for the newest available completed trading day. IEX publication time is not guaranteed. Schedules are best effort and may be delayed; the app must show the trading date and stale state. Same completed day is skipped to avoid repeat large downloads. A failed HTTP request, gzip checksum, incomplete capture, missing ETF or malformed record does not overwrite the prior good result.
 
