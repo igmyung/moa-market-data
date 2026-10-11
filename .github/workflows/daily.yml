@@ -1,0 +1,32 @@
+name: Daily IEX ETF reference prices
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: iex-daily-collector
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+      - name: Validate parser
+        run: python3 tests/test_collector.py
+      - name: Stream newest completed IEX trading day
+        run: python3 collector/collect.py
+      - name: Publish only validated small result
+        run: |
+          git add public/prices.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update IEX ETF reference prices'
+          git push origin HEAD:main
