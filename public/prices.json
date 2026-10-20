@@ -2,42 +2,42 @@
   "schemaVersion": 1,
   "source": "IEX HIST",
   "priceKind": "iex_regular_session_last_sale",
-  "tradingDate": "2026-10-16",
+  "tradingDate": "2026-10-19",
   "quotes": [
     {
       "symbol": "VOO",
-      "priceUSD": 701.745,
-      "timestampNs": "1792180796859232224",
-      "tradeId": "7630041"
+      "priceUSD": 704.47,
+      "timestampNs": "1792439998080022053",
+      "tradeId": "6497761"
     },
     {
       "symbol": "SPY",
-      "priceUSD": 763.335,
-      "timestampNs": "1792180799878385279",
-      "tradeId": "7638789"
+      "priceUSD": 766.6,
+      "timestampNs": "1792439999545305558",
+      "tradeId": "6504363"
     },
     {
       "symbol": "IVV",
-      "priceUSD": 766.69,
-      "timestampNs": "1792180798064176452",
-      "tradeId": "7634723"
+      "priceUSD": 769.8,
+      "timestampNs": "1792439991676007296",
+      "tradeId": "6462893"
     },
     {
       "symbol": "VTI",
-      "priceUSD": 374.12,
-      "timestampNs": "1792180785294861651",
-      "tradeId": "7539671"
+      "priceUSD": 375.54,
+      "timestampNs": "1792439988671213395",
+      "tradeId": "6434781"
     },
     {
       "symbol": "VT",
-      "priceUSD": 156.81,
-      "timestampNs": "1792180798794345434",
-      "tradeId": "7636451"
+      "priceUSD": 157.13,
+      "timestampNs": "1792439999910722425",
+      "tradeId": "6505574"
     }
   ],
-  "generatedAt": "2026-10-17T11:43:09.235365+00:00",
+  "generatedAt": "2026-10-20T12:48:21.005122+00:00",
   "attribution": "Data provided for free by IEX. By accessing or using IEX Historical Data, you agree to the IEX Historical Data Terms of Use.",
   "termsURL": "https://www.iex.io/legal/hist-data-terms",
-  "sourceFileBytes": 14606058896,
+  "sourceFileBytes": 11197958400,
   "collectorVersion": "9216fff04b1f3764"
 }
