@@ -300,6 +300,43 @@
       ],
       "generatedAt": "2026-10-21T13:01:31.232344+00:00",
       "collectorVersion": "9216fff04b1f3764"
+    },
+    {
+      "tradingDate": "2026-10-21",
+      "quotes": [
+        {
+          "symbol": "VOO",
+          "priceUSD": 710.7,
+          "timestampNs": "1792612798409178707",
+          "tradeId": "7012091"
+        },
+        {
+          "symbol": "SPY",
+          "priceUSD": 773.13,
+          "timestampNs": "1792612799848338777",
+          "tradeId": "7014672"
+        },
+        {
+          "symbol": "IVV",
+          "priceUSD": 776.63,
+          "timestampNs": "1792612797456086333",
+          "tradeId": "7008385"
+        },
+        {
+          "symbol": "VTI",
+          "priceUSD": 379.27,
+          "timestampNs": "1792612792512932641",
+          "tradeId": "6978587"
+        },
+        {
+          "symbol": "VT",
+          "priceUSD": 158.57,
+          "timestampNs": "1792612796848510215",
+          "tradeId": "7006028"
+        }
+      ],
+      "generatedAt": "2026-10-22T13:04:21.506651+00:00",
+      "collectorVersion": "9216fff04b1f3764"
     }
   ]
 }
